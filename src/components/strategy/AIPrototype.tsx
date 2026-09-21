@@ -1,17 +1,18 @@
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
+import { StrategyNote } from "./StrategyNote";
 
 const flow = ["User", "AI Concierge", "Qualification", "Recommended Content", "Sales Handoff"];
 
-const does = ["案内", "情報整理", "コンテンツ推薦"];
-const doesNot = ["営業代行", "専門判断", "契約判断"];
+const does = ["FAQへの回答", "情報のナビゲーション", "コンテンツ推薦", "事前ヒアリング（Pre-Qualification）"];
+const doesNot = ["住宅ローンの判断", "法律判断", "構造安全性の判断", "正式な見積り", "契約の判断"];
 
 export function AIPrototype() {
   return (
     <div id="ai" className="section scroll-mt-24">
       <div className="wide">
         <Reveal className="max-w-2xl">
-          <SectionLabel>07 — 10 Years Later Concierge</SectionLabel>
+          <SectionLabel>08 — 10 Years Later Concierge</SectionLabel>
           <h2 className="text-[24px] leading-[1.5] md:text-[32px]">
             接客ではなく、ナビゲーション。
           </h2>
@@ -87,6 +88,17 @@ export function AIPrototype() {
               </ul>
             </div>
             <div className="border-t hairline pt-6">
+              <p className="font-en-serif text-[11px] italic tracking-[0.1em] text-forest">
+                Human Handoff
+              </p>
+              <p className="mt-3 text-[13px] leading-relaxed text-ink">
+                AI → 判断が必要な質問 → 人（設計・営業担当）
+              </p>
+              <p className="mt-1.5 text-[12px] leading-relaxed text-secondary">
+                重要な判断は、常に人が引き継ぐ。
+              </p>
+            </div>
+            <div className="border-t hairline pt-6">
               <p className="font-en-serif text-[11px] italic tracking-[0.1em] text-wood">
                 When to Implement
               </p>
@@ -96,6 +108,8 @@ export function AIPrototype() {
             </div>
           </Reveal>
         </div>
+
+        <StrategyNote>AIは人を減らすためではなく、人が必要な相談に集中するために使う。</StrategyNote>
       </div>
     </div>
   );

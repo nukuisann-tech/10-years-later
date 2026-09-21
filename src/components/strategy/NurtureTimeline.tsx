@@ -16,7 +16,7 @@ export function NurtureTimeline() {
     <div id="nurture" className="section scroll-mt-24 bg-surface">
       <div className="wide">
         <Reveal className="max-w-2xl">
-          <SectionLabel>06 — Nurture Sequence</SectionLabel>
+          <SectionLabel>07 — Nurture Sequence</SectionLabel>
           <h2 className="text-[24px] leading-[1.5] md:text-[32px]">
             登録直後は売り込まない。21日かけて信頼を積む。
           </h2>

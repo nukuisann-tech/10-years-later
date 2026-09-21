@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { StrategyNote } from "./StrategyNote";
 
 const tiers = [
   { tier: "Low", action: "Browse", items: ["Works", "Journal"] },
@@ -40,6 +41,8 @@ export function IntentJourney() {
           ))}
         </div>
       </Reveal>
+
+      <StrategyNote>全員に問い合わせを求めない。</StrategyNote>
     </div>
   );
 }

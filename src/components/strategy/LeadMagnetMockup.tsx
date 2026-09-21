@@ -1,12 +1,13 @@
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal, ImageReveal } from "@/components/Reveal";
+import { StrategyNote } from "./StrategyNote";
 
 export function LeadMagnetMockup() {
   return (
     <div id="lead-magnet" className="section scroll-mt-24">
       <div className="wide">
         <Reveal className="max-w-2xl">
-          <SectionLabel>05 — Flagship Lead Magnet</SectionLabel>
+          <SectionLabel>06 — Flagship Lead Magnet</SectionLabel>
           <h2 className="text-[24px] leading-[1.5] md:text-[32px]">
             施工事例5本を、診断の答えに変える。
           </h2>
@@ -17,7 +18,40 @@ export function LeadMagnetMockup() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3">
+        {/* Before / After user value */}
+        <Reveal delay={0.05} className="mt-10 grid grid-cols-1 gap-6 border-t hairline pt-8 md:grid-cols-2">
+          <div>
+            <p className="font-en-serif text-[11px] italic tracking-[0.1em] text-secondary">Before</p>
+            <p className="font-serif-jp mt-2 text-[15px] leading-[1.7] text-secondary">
+              何から決めればいいか分からない。
+            </p>
+          </div>
+          <div>
+            <p className="font-en-serif text-[11px] italic tracking-[0.1em] text-wood">After</p>
+            <p className="font-serif-jp mt-2 text-[15px] leading-[1.7] text-ink">
+              自分たちの家づくりで、優先すべきことが整理できる。
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Input -> Process -> Output */}
+        <Reveal delay={0.08} className="mt-8 overflow-x-auto">
+          <div className="flex w-max min-w-full items-center gap-3">
+            {["家族", "暮らし", "土地", "予算", "価値観"].map((t) => (
+              <span key={t} className="border border-line-strong px-3 py-1.5 text-[12px] text-secondary">
+                {t}
+              </span>
+            ))}
+            <span className="text-secondary">→</span>
+            <span className="border border-wood px-3 py-1.5 text-[12px] italic text-wood">
+              10 Years Later Home Plan
+            </span>
+            <span className="text-secondary">→</span>
+            <span className="bg-forest px-3 py-1.5 text-[12px] text-base">Your Priorities</span>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3">
           {/* Cover */}
           <ImageReveal>
             <div className="flex aspect-[3/4] flex-col justify-between bg-ink p-7 text-base">
@@ -93,6 +127,8 @@ export function LeadMagnetMockup() {
             <span className="font-serif-jp text-ink">「10年後の暮らしを整理してみる」</span>。
           </p>
         </Reveal>
+
+        <StrategyNote>ダウンロードさせる仕組みではなく、考えを整理する体験として設計する。</StrategyNote>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ export function Roadmap() {
     <div id="roadmap" className="section scroll-mt-24">
       <div className="wide">
         <Reveal className="max-w-2xl">
-          <SectionLabel>09 — Priority Roadmap</SectionLabel>
+          <SectionLabel>11 — Priority Roadmap</SectionLabel>
           <h2 className="text-[24px] leading-[1.5] md:text-[32px]">
             全部やる、ではなく、順番を決める。
           </h2>

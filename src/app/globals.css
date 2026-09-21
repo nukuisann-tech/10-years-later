@@ -106,6 +106,28 @@ h1, h2, h3, h4 {
   border-color: var(--color-line);
 }
 
+/* Print / Save as PDF — used by the Growth Strategy page's PRINT / SAVE
+   STRATEGY button, but written generically so any page prints cleanly:
+   fixed navigation chrome is UI, not document content, so it is hidden
+   rather than repeated on every printed page or left overlapping text. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .strategy-doc section,
+  .strategy-doc > div {
+    break-inside: avoid;
+  }
+  .strategy-doc figure,
+  .strategy-doc svg {
+    break-inside: avoid;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

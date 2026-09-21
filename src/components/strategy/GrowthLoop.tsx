@@ -15,7 +15,7 @@ export function GrowthLoop() {
       <div className="wide">
         <Reveal>
           <p className="font-en-serif text-[12px] italic tracking-[0.14em] text-base/60">
-            11 — The Growth Loop
+            13 — The Growth Loop
           </p>
           <h2 className="font-serif-jp mt-4 text-[24px] leading-[1.5] md:text-[32px]">
             この循環が、灯森工務店Growth Strategyの結論です。

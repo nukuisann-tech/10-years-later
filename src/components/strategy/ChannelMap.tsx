@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
+import { StrategyNote } from "./StrategyNote";
 
 const channels = [
   {
@@ -57,6 +58,8 @@ export function ChannelMap() {
             </Reveal>
           ))}
         </div>
+
+        <StrategyNote>チャネルを増やす前に、それぞれの役割を決める。</StrategyNote>
       </div>
     </div>
   );

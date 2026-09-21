@@ -48,7 +48,7 @@ export function ConceptBadgeFixed() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-5 left-5 z-40 hidden border border-line bg-base/90 px-3 py-2 text-[10px] tracking-[0.12em] text-secondary backdrop-blur-md transition-colors hover:text-ink lg:block"
+        className="no-print fixed bottom-5 left-5 z-40 hidden border border-line bg-base/90 px-3 py-2 text-[10px] tracking-[0.12em] text-secondary backdrop-blur-md transition-colors hover:text-ink lg:block"
       >
         CONCEPT PROJECT
       </button>

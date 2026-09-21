@@ -12,13 +12,17 @@ function scrollToChapter(id: string) {
 }
 
 export function ChapterNav() {
-  const [active, setActive] = useState(chapters[0].id);
+  // No chapter is "current" until the reader actually scrolls into one —
+  // defaulting to the first chapter made the nav claim a location before
+  // the reader had reached it, which reads as sloppy in a document meant
+  // to be handed to a client.
+  const [active, setActive] = useState<string | null>(null);
   const stripRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
     const strip = stripRef.current;
-    const btn = buttonRefs.current[active];
+    const btn = active ? buttonRefs.current[active] : null;
     if (!strip || !btn) return;
     const stripRect = strip.getBoundingClientRect();
     const btnRect = btn.getBoundingClientRect();
@@ -50,10 +54,13 @@ export function ChapterNav() {
 
   return (
     <>
-      {/* Desktop: fixed vertical chapter index */}
+      {/* Desktop: fixed vertical chapter index.
+          bg-base/70 + blur keeps the text legible over dark sections
+          (Growth Loop is bg-ink) — without it, active-state text
+          (text-ink) disappears against a dark section behind it. */}
       <nav
         aria-label="Strategy chapters"
-        className="fixed right-8 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-3 xl:flex"
+        className="no-print fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-3 bg-base/70 px-3 py-4 backdrop-blur-sm xl:flex"
       >
         {chapters.map((c) => (
           <button
@@ -82,7 +89,7 @@ export function ChapterNav() {
       {/* Mobile / tablet: sticky horizontal chapter strip (full-bleed, not nested in a padded container) */}
       <div
         ref={stripRef}
-        className="sticky top-[72px] z-30 w-full overflow-x-auto border-b hairline bg-base/95 backdrop-blur-md md:top-[88px] xl:hidden"
+        className="no-print sticky top-[72px] z-30 w-full overflow-x-auto border-b hairline bg-base/95 backdrop-blur-md md:top-[88px] xl:hidden"
       >
         <div className="flex w-max gap-6 px-6 py-3 md:px-12">
           {chapters.map((c) => (

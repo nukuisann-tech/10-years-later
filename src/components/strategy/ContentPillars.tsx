@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
+import { StrategyNote } from "./StrategyNote";
 
 const pillars = [
   { p: "Pillar A", tag: "後悔を減らす", question: "「建てた後に、失敗したくない。」" },
@@ -31,6 +32,8 @@ export function ContentPillars() {
             </Reveal>
           ))}
         </div>
+
+        <StrategyNote>コンテンツを増やすのではなく、顧客の問いに1対1で答える。</StrategyNote>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="no-print fixed inset-x-0 top-0 z-50">
       {/*
         The blurred/tinted bar lives on this inner div, not <header> itself.
         backdrop-filter establishes a new containing block for fixed-position

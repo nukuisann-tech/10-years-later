@@ -20,7 +20,7 @@ export function KPITree() {
     <div id="kpi" className="section scroll-mt-24 bg-surface">
       <div className="wide">
         <Reveal className="max-w-2xl">
-          <SectionLabel>08 — KPI Tree（Sample Data）</SectionLabel>
+          <SectionLabel>12 — KPI Tree（Sample Data）</SectionLabel>
           <h2 className="text-[24px] leading-[1.5] md:text-[32px]">
             PVではなく、契約数から逆算する。
           </h2>

@@ -9,7 +9,7 @@ export function MobileCTA() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t hairline bg-base/95 backdrop-blur-md lg:hidden"
+      className="no-print fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t hairline bg-base/95 backdrop-blur-md lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <Link
