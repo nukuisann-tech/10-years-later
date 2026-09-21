@@ -11,33 +11,39 @@ export const metadata: Metadata = {
 
 const specs = [
   {
+    en: "Earthquake Resistance",
     name: "耐震等級3",
-    detail: "消防署・警察署など防災拠点と同等の、最高等級の耐震性能（想定仕様）。",
+    detail: "防災拠点と同等の、最高等級の耐震性能（想定仕様）。",
     benefit: "大きな地震の夜も、家族が安心して眠れる強さを。",
   },
   {
+    en: "Insulation",
     name: "断熱等性能等級6",
-    detail: "国の定める断熱等級のうち、上位に位置する高い断熱性能（想定仕様）。",
+    detail: "国の断熱等級のうち、上位に位置する性能（想定仕様）。",
     benefit: "冬の朝、布団から出るのがつらくない室温を。",
   },
   {
+    en: "Thermal Transmittance",
     name: "UA値 0.46以下",
-    detail: "外皮平均熱貫流率。数値が低いほど、熱が逃げにくいことを示します（想定値）。",
+    detail: "外皮平均熱貫流率。数値が低いほど熱が逃げにくい（想定値）。",
     benefit: "冷暖房に頼りすぎず、一年を通して穏やかな室温を。",
   },
   {
+    en: "Airtightness",
     name: "C値 0.5以下",
-    detail: "相当隙間面積。建物の気密性能を示す数値です（想定値）。",
+    detail: "相当隙間面積。建物の気密性能を示す数値（想定値）。",
     benefit: "隙間風にごまかされない、静かで均一な室内空気を。",
   },
   {
+    en: "Ventilation",
     name: "24時間換気（第一種）",
-    detail: "熱交換型の機械換気により、温度を保ちながら空気を入れ替えます（想定仕様）。",
+    detail: "熱交換型の機械換気で、温度を保ちながら換気（想定仕様）。",
     benefit: "花粉やPM2.5を抑えながら、きれいな空気を保つ。",
   },
   {
+    en: "Longevity",
     name: "長期優良住宅 対応",
-    detail: "耐震・省エネ・維持管理のしやすさなど、長く住み継ぐための基準に対応（想定仕様）。",
+    detail: "耐震・省エネ・維持管理のしやすさに対応（想定仕様）。",
     benefit: "10年後も、資産として安心して住み続けられる基準を。",
   },
 ];
@@ -54,18 +60,15 @@ export default function PerformancePage() {
             理由があります。
           </h1>
           <p className="mt-6 text-[14px] leading-loose text-secondary md:text-[15px]">
-            性能の数字は、比較のための共通言語です。でも、数字だけを並べても、
-            暮らしがどう変わるのかは伝わりません。私たちは、性能の先にある体感を、
-            できるだけ具体的な言葉に翻訳してお伝えするようにしています。
+            数字だけを並べても、暮らしがどう変わるのかは伝わりません。
+            性能の先にある体感を、具体的な言葉に翻訳してお伝えします。
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
           <div className="mt-10 border border-line bg-surface px-6 py-5 md:mt-14">
-            <p className="text-[13px] leading-relaxed text-secondary">
-              ※本サイトはポートフォリオのために制作した架空の工務店サイトです。
-              以下に掲載する数値はすべて「想定仕様 / SAMPLE SPEC」であり、
-              実在する建物における実績値・性能評価ではありません。
+            <p className="font-en-serif text-[12px] italic tracking-[0.14em] text-secondary">
+              SAMPLE SPEC — 架空の工務店による想定仕様です。実在する建物の実績値ではありません。
             </p>
           </div>
         </Reveal>
@@ -75,7 +78,10 @@ export default function PerformancePage() {
             <Reveal key={s.name} delay={i * 0.04}>
               <div className="grid grid-cols-1 gap-3 border-b hairline py-8 md:grid-cols-12 md:gap-8 md:py-10">
                 <div className="md:col-span-4">
-                  <p className="font-serif-jp text-[20px] text-ink md:text-[22px]">
+                  <p className="font-en-serif text-[12px] italic tracking-[0.12em] text-wood">
+                    {String(i + 1).padStart(2, "0")} — {s.en}
+                  </p>
+                  <p className="font-serif-jp mt-2 text-[20px] text-ink md:text-[22px]">
                     {s.name}
                   </p>
                   <p className="mt-2 text-[12px] leading-relaxed text-secondary">

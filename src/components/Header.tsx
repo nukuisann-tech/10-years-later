@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { ConceptBadgeInline } from "@/components/ConceptBadge";
 
 const navItems = [
   { href: "/works", label: "施工事例", en: "Works" },
@@ -107,6 +108,9 @@ export function Header() {
             </Link>
           ))}
         </nav>
+        <div className="content mt-10">
+          <ConceptBadgeInline />
+        </div>
       </div>
     </header>
   );

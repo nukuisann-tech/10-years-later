@@ -45,11 +45,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease, delay: 0.25 }}
-          className="mt-7 max-w-md text-[14px] leading-loose text-base/90 md:text-[15px]"
+          className="mt-7 max-w-sm text-[14px] leading-loose text-base/90 md:text-[15px]"
         >
           家は、完成した瞬間がいちばん新しい。
-          <br />
-          でも、本当に大切なのはその先です。
           <br />
           家族の時間とともに、少しずつ好きになっていく家を。
         </motion.p>

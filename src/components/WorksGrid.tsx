@@ -15,6 +15,14 @@ const categories: ("ALL" | WorkCategory)[] = [
   "土地探しから",
 ];
 
+const rhythm = [
+  { col: "md:col-span-12", aspect: "aspect-[21/9]", offset: "" },
+  { col: "md:col-span-7", aspect: "aspect-[4/3]", offset: "" },
+  { col: "md:col-span-5", aspect: "aspect-[4/5]", offset: "md:mt-20" },
+  { col: "md:col-span-6", aspect: "aspect-[3/4]", offset: "" },
+  { col: "md:col-span-6", aspect: "aspect-[3/4]", offset: "md:mt-16" },
+];
+
 export function WorksGrid() {
   const [active, setActive] = useState<"ALL" | WorkCategory>("ALL");
   const filtered = works.filter((w) => active === "ALL" || w.category === active);
@@ -38,35 +46,38 @@ export function WorksGrid() {
         ))}
       </div>
 
-      <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 md:gap-y-20">
-        {filtered.map((w, i) => (
-          <ImageReveal key={w.slug} delay={(i % 2) * 0.08}>
-            <Link href={`/works/${w.slug}`} className="group block">
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Image
-                  src={image(w.heroImage, 1200)}
-                  alt={w.heroAlt}
-                  fill
-                  sizes="(min-width: 768px) 45vw, 100vw"
-                  className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-serif-jp text-[19px] leading-snug text-ink md:text-[21px]">
-                    {w.title}
-                  </p>
-                  <p className="mt-1.5 text-[12px] tracking-wide text-secondary">
-                    {w.location} ・ {w.family}
-                  </p>
+      <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-12 md:gap-y-16">
+        {filtered.map((w, i) => {
+          const r = rhythm[i % rhythm.length];
+          return (
+            <ImageReveal key={w.slug} delay={(i % 3) * 0.06} className={r.col}>
+              <Link href={`/works/${w.slug}`} className={`group block ${r.offset}`}>
+                <div className={`relative w-full overflow-hidden ${r.aspect}`}>
+                  <Image
+                    src={image(w.heroImage, 1400)}
+                    alt={w.heroAlt}
+                    fill
+                    sizes="(min-width: 768px) 60vw, 100vw"
+                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.02]"
+                  />
                 </div>
-                <span className="mt-1 shrink-0 text-[11px] tracking-wide text-wood">
-                  {w.category}
-                </span>
-              </div>
-            </Link>
-          </ImageReveal>
-        ))}
+                <div className="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-serif-jp text-[19px] leading-snug text-ink transition-colors group-hover:text-wood md:text-[21px]">
+                      {w.title}
+                    </p>
+                    <p className="mt-1.5 text-[12px] tracking-wide text-secondary">
+                      {w.family} ・ {w.location}
+                    </p>
+                  </div>
+                  <span className="mt-1 shrink-0 text-[11px] tracking-wide text-wood">
+                    {w.category}
+                  </span>
+                </div>
+              </Link>
+            </ImageReveal>
+          );
+        })}
       </div>
 
       {filtered.length === 0 && (

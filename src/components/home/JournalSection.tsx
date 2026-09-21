@@ -23,7 +23,7 @@ export function JournalSection() {
         </Reveal>
 
         <div className="border-t hairline">
-          {journalPosts.map((post, i) => (
+          {journalPosts.slice(0, 2).map((post, i) => (
             <Reveal key={post.slug} delay={i * 0.05}>
               <Link
                 href={`/journal/${post.slug}`}

@@ -14,8 +14,10 @@ export function PeopleSection() {
             誰がつくるか、を大切にしています。
           </h2>
           <p className="mt-6 text-[14px] leading-loose text-secondary md:text-[15px]">
-            図面の向こうにいるのは、いつも同じ顔ぶれです。
             打ち合わせから現場まで、担当が変わらないことを大切にしています。
+          </p>
+          <p className="mt-3 text-[11px] tracking-wide text-secondary/70">
+            ※ CONCEPT PROJECTのため、人物・役職は架空の設定です。
           </p>
         </Reveal>
 

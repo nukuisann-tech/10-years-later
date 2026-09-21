@@ -30,10 +30,10 @@ export function CtaSection() {
               家づくりの話をしてみる
             </Link>
             <Link
-              href="/contact"
+              href="/works"
               className="inline-flex items-center text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 transition-colors hover:decoration-wood"
             >
-              モデルハウスを見る
+              施工事例を見る
             </Link>
           </div>
         </Reveal>

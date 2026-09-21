@@ -38,6 +38,15 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+      <div className="border border-line bg-surface px-5 py-4">
+        <p className="font-en-serif text-[11px] italic tracking-[0.14em] text-wood">
+          DEMO FORM
+        </p>
+        <p className="mt-1.5 text-[12px] leading-relaxed text-secondary">
+          本フォームはポートフォリオ用のデモフォームです。実際の企業へのお問い合わせには送信されません。
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
         <label className="flex flex-col gap-2">
           <span className="text-[12px] tracking-wide text-secondary">

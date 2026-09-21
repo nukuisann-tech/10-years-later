@@ -11,6 +11,7 @@ import { site } from "@/lib/site";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCTA } from "@/components/MobileCTA";
+import { ConceptBadgeFixed } from "@/components/ConceptBadge";
 
 const notoSerifJp = Noto_Serif_JP({
   subsets: ["latin"],
@@ -85,6 +86,7 @@ export default function RootLayout({
           <main className="pb-[68px] pt-[72px] md:pt-[88px] lg:pb-0">{children}</main>
           <Footer />
           <MobileCTA />
+          <ConceptBadgeFixed />
         </MotionConfig>
       </body>
     </html>

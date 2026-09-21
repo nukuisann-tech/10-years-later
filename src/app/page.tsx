@@ -3,6 +3,7 @@ import { Philosophy } from "@/components/home/Philosophy";
 import { WorksShowcase } from "@/components/home/WorksShowcase";
 import { TenYearsLater } from "@/components/home/TenYearsLater";
 import { ThreePromises } from "@/components/home/ThreePromises";
+import { Interlude } from "@/components/home/Interlude";
 import { PerformanceSection } from "@/components/home/PerformanceSection";
 import { StorySection } from "@/components/home/StorySection";
 import { ProcessSection } from "@/components/home/ProcessSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <WorksShowcase />
       <TenYearsLater />
       <ThreePromises />
+      <Interlude />
       <PerformanceSection />
       <StorySection />
       <ProcessSection />

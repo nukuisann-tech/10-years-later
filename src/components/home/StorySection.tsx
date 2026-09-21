@@ -1,14 +1,30 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal, ImageReveal } from "@/components/Reveal";
 import { image } from "@/lib/images";
+
+const beats = [
+  {
+    en: "Before",
+    text: "共働きで、休日の朝すら光の中で過ごせなかったご夫婦。",
+  },
+  {
+    en: "Design",
+    text: "土地に残る木を活かし、キッチンから庭へ抜ける動線を設計。",
+  },
+  {
+    en: "Now",
+    text: "休日の朝、子どもが起きる前に夫婦で庭を眺める時間が生まれた。",
+  },
+];
 
 export function StorySection() {
   return (
     <section className="section bg-base">
       <div className="wide">
         <Reveal className="mb-14 max-w-2xl md:mb-20">
-          <SectionLabel>A Family Story</SectionLabel>
+          <SectionLabel>Case Study Preview</SectionLabel>
           <h2 className="text-[28px] leading-[1.5] md:text-[36px]">
             ある家族の、10年のはじまり。
           </h2>
@@ -28,29 +44,28 @@ export function StorySection() {
           </ImageReveal>
 
           <div className="lg:col-span-5">
-            <Reveal className="space-y-6 text-[14px] leading-loose text-secondary md:text-[15px]">
-              <p>
-                共働きで、子どもは1人。夫婦それぞれの通勤時間を考えて選んだ賃貸マンションは、
-                日当たりがよくなく、休日の朝も少し薄暗いままでした。
-              </p>
-              <p>
-                「せめて休日くらいは、光の中でゆっくり朝ごはんを食べたい」。
-                最初の相談で伺ったのは、性能でも間取りでもなく、そんな小さな願いでした。
-              </p>
-              <p>
-                土地に残っていた大きな木を活かし、キッチンから庭へ抜ける動線を設計。
-                朝の光が奥まで届くよう、開口部の高さと位置を何度も調整しました。
-              </p>
+            <Reveal>
+              <div className="space-y-6">
+                {beats.map((b) => (
+                  <div key={b.en} className="border-l-2 border-line pl-5">
+                    <p className="font-en-serif text-[12px] italic tracking-[0.16em] text-wood">
+                      {b.en}
+                    </p>
+                    <p className="mt-1.5 text-[14px] leading-relaxed text-secondary md:text-[15px]">
+                      {b.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </Reveal>
 
-            <Reveal delay={0.1} className="mt-8 border-l-2 border-wood pl-6">
-              <p className="font-serif-jp text-[17px] leading-[1.8] text-ink md:text-[18px]">
-                「休日の朝、子どもがまだ寝ている間に、
-                夫婦でコーヒーを飲みながら庭を眺める時間ができました。」
-              </p>
-              <p className="mt-3 text-[12px] tracking-wide text-secondary">
-                — 施主インタビューより（架空の事例です）
-              </p>
+            <Reveal delay={0.1}>
+              <Link
+                href="/works/garden-breakfast"
+                className="mt-8 inline-flex items-center text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 transition-colors hover:decoration-wood"
+              >
+                この事例の詳細を読む
+              </Link>
             </Reveal>
           </div>
         </div>

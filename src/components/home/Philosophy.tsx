@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal, ImageReveal } from "@/components/Reveal";
 import { image } from "@/lib/images";
@@ -18,20 +19,16 @@ export function Philosophy() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-8 max-w-md space-y-5 text-[14px] leading-loose text-secondary md:text-[15px]">
-              <p>
-                平日の朝、誰が先に家を出るのか。休日の昼、誰が洗濯物を畳むのか。
-                子どもが宿題をする場所は、リビングの隅か、それとも自分の部屋か。
-              </p>
-              <p>
-                私たちが最初に聞きたいのは、床面積でも予算でもなく、そうした暮らしの一場面です。
-                間取りは、その一場面一場面を積み重ねた先にしか見えてこないと考えているからです。
-              </p>
-              <p>
-                性能も、デザインも、暮らしを支えるための手段です。
-                目的は常に、その先にある10年間の時間そのものにあります。
-              </p>
-            </div>
+            <p className="mt-8 max-w-sm text-[14px] leading-loose text-secondary md:text-[15px]">
+              平日の朝、誰が先に家を出るのか。休日の昼、誰が洗濯物を畳むのか。
+              間取りは、そうした一場面を積み重ねた先にしか見えてこないと考えています。
+            </p>
+            <Link
+              href="/philosophy"
+              className="mt-6 inline-flex items-center text-[13px] tracking-wide text-ink underline decoration-line underline-offset-8 transition-colors hover:decoration-wood"
+            >
+              私たちの思想を読む
+            </Link>
           </Reveal>
         </div>
 

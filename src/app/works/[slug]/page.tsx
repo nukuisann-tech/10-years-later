@@ -47,7 +47,10 @@ export default async function WorkDetailPage({
       </div>
 
       <div className="wide flex flex-wrap items-center gap-x-8 gap-y-2 border-b hairline py-6 text-[12px] tracking-wide text-secondary">
-        <span>{work.location}</span>
+        <span>
+          <span className="text-wood">Location — </span>
+          {work.location}
+        </span>
         <span>{work.family}</span>
         <span className="text-wood">{work.category}</span>
       </div>

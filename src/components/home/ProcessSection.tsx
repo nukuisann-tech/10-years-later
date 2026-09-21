@@ -2,12 +2,12 @@ import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 
 const steps = [
-  { no: "01", title: "相談", text: "まずは形式張らず、今の暮らしで感じていることをお聞かせください。" },
-  { no: "02", title: "暮らしを聞く", text: "一日の過ごし方、家事の分担、譲れない条件を時間をかけて伺います。" },
-  { no: "03", title: "土地・環境を見る", text: "日当たり、風の通り、周辺環境を実際に歩いて確認します。" },
-  { no: "04", title: "設計", text: "ヒアリングをもとに、間取り・性能・予算をすり合わせていきます。" },
-  { no: "05", title: "施工", text: "見えなくなる場所ほど、現場で確認しながら丁寧につくります。" },
-  { no: "06", title: "完成", text: "お引き渡しの日は、ゴールではなく新しい暮らしのはじまりです。" },
+  { no: "01", title: "相談", text: "今の暮らしで感じていることを、まず聞かせてください。" },
+  { no: "02", title: "暮らしを聞く", text: "一日の過ごし方と、譲れない条件を時間をかけて。" },
+  { no: "03", title: "土地・環境を見る", text: "日当たりと風の通りを、実際に歩いて確認。" },
+  { no: "04", title: "設計", text: "間取り・性能・予算をすり合わせていきます。" },
+  { no: "05", title: "施工", text: "見えなくなる場所ほど、丁寧に確認しながら。" },
+  { no: "06", title: "完成", text: "ゴールではなく、新しい暮らしのはじまり。" },
 ];
 
 export function ProcessSection() {
@@ -42,13 +42,17 @@ export function ProcessSection() {
         </div>
 
         <Reveal delay={0.3}>
-          <div className="mt-10 bg-forest px-8 py-10 text-base md:mt-14 md:px-14 md:py-14">
-            <p className="font-en-serif text-[15px] italic text-base/80">07</p>
-            <h3 className="font-serif-jp mt-3 text-[22px] md:text-[26px]">その後</h3>
+          <div className="mt-10 bg-forest px-8 py-16 text-base md:mt-14 md:px-16 md:py-24">
+            <p className="font-en-serif text-[13px] italic tracking-[0.2em] text-base/70">
+              07
+            </p>
+            <p className="font-en-display mt-2 text-[48px] italic leading-none tracking-tight md:text-[80px]">
+              After Handover
+            </p>
+            <h3 className="font-serif-jp mt-6 text-[24px] md:text-[28px]">その後こそ、本題です。</h3>
             <p className="mt-5 max-w-xl text-[14px] leading-loose text-base/85 md:text-[15px]">
-              建てて終わりではありません。定期点検と、いつでも相談できる窓口を用意し、
-              10年後も、20年後も、変わらず頼れる存在でいることをお約束します。
-              家づくりで一番大切なのは、実はお引き渡しのあとの時間だと考えています。
+              定期点検といつでも相談できる窓口を用意し、10年後も、20年後も、
+              変わらず頼れる存在でいることをお約束します。
             </p>
           </div>
         </Reveal>

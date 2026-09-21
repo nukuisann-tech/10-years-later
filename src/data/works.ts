@@ -24,7 +24,7 @@ export const works: Work[] = [
   {
     slug: "garden-breakfast",
     title: "庭と朝食を楽しむ家",
-    location: "架空県 緑ヶ丘",
+    location: "Kanto Area",
     family: "夫婦 + 子ども1人",
     theme: "大きな木の下で、朝がはじまる家。",
     category: "2階建て",
@@ -54,7 +54,7 @@ export const works: Work[] = [
   {
     slug: "watching-child-grow",
     title: "子どもの成長を見守る平屋",
-    location: "架空県 川辺町",
+    location: "Kanto Area",
     family: "夫婦 + 子ども2人",
     theme: "段差のない一室で、家族の気配がいつもそばにある。",
     category: "平屋",
@@ -82,7 +82,7 @@ export const works: Work[] = [
   {
     slug: "rainy-day",
     title: "雨の日が好きになる家",
-    location: "架空県 北山地区",
+    location: "Tohoku Area",
     family: "夫婦のみ",
     theme: "音と光を味方につけた、雨の日の過ごし方。",
     category: "2階建て",
@@ -110,7 +110,7 @@ export const works: Work[] = [
   {
     slug: "quiet-with-books",
     title: "本と静かに暮らす家",
-    location: "架空県 桜坂",
+    location: "Kansai Area",
     family: "夫婦 + 子ども1人",
     theme: "本棚が、家族それぞれの居場所をつくる。",
     category: "リノベーション",
@@ -138,7 +138,7 @@ export const works: Work[] = [
   {
     slug: "gather-in-kitchen",
     title: "家族が自然と集まる台所",
-    location: "架空県 東ノ町",
+    location: "Chubu Area",
     family: "夫婦 + 子ども2人",
     theme: "誰かが料理をしていると、自然と人が集まる。",
     category: "土地探しから",
