@@ -15,7 +15,7 @@ const rows = [
   {
     en: "Earthquake Resistance",
     name: "耐震等級3",
-    detail: "耐震等級のうち、上位に位置づけた想定仕様。",
+    detail: "耐震等級3を想定した、地震への備えを考えた仕様です。",
     benefit: "大きな地震の夜も、家族が安心して眠れる強さを。",
   },
   {
