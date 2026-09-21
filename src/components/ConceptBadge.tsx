@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const explanation =
   "本サイトはWeb制作・ブランド設計のポートフォリオとして制作された架空プロジェクトです。企業名、人物、施工事例、数値等はコンセプト設計上のものです。";
@@ -22,10 +23,16 @@ function Modal({ open, onClose }: { open: boolean; onClose: () => void }) {
           Concept Project / Portfolio Study
         </p>
         <p className="mt-4 text-[14px] leading-loose text-ink">{explanation}</p>
+        <Link
+          href="/growth-strategy"
+          className="mt-5 inline-block text-[13px] tracking-wide text-wood underline decoration-line underline-offset-8 hover:text-ink"
+        >
+          Growth Strategyを見る →
+        </Link>
         <button
           type="button"
           onClick={onClose}
-          className="mt-6 text-[13px] tracking-wide text-secondary underline decoration-line underline-offset-8 hover:text-ink"
+          className="mt-6 block text-[13px] tracking-wide text-secondary underline decoration-line underline-offset-8 hover:text-ink"
         >
           閉じる
         </button>
