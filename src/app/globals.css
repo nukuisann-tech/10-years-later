@@ -8,6 +8,7 @@
   --color-wood: #92775d;
   --color-forest: #4f5947;
   --color-line: rgba(37, 37, 33, 0.12);
+  --color-line-strong: rgba(37, 37, 33, 0.28);
 
   --font-serif-jp: "Noto Serif JP", serif;
   --font-sans-jp: "Noto Sans JP", sans-serif;
@@ -23,6 +24,7 @@
   --color-wood: var(--color-wood);
   --color-forest: var(--color-forest);
   --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
 
   --font-serif-jp: var(--font-serif-jp);
   --font-sans-jp: var(--font-sans-jp);
