@@ -1,9 +1,14 @@
+import type { ImageKey } from "@/lib/images";
+
 export type JournalPost = {
   slug: string;
   title: string;
   excerpt: string;
   category: string;
   date: string;
+  image: ImageKey;
+  imageAlt: string;
+  pullQuote: string;
   body: { heading?: string; text: string }[];
 };
 
@@ -15,6 +20,9 @@ export const journalPosts: JournalPost[] = [
       "価格や広さより先に見るべきことがあります。10年後の暮らしやすさを左右する、土地選びの視点。",
     category: "土地探し",
     date: "2026-04-08",
+    image: "houseADayGarden",
+    imageAlt: "大きな木のある庭で、屋外のダイニングテーブルを囲む住宅",
+    pullQuote: "昼間の内見だけでは、朝と夕方の光の入り方は分かりません。",
     body: [
       {
         text: "土地探しでは、価格と面積にどうしても目が行きがちです。ですが、実際に住み始めてから効いてくるのは、数字には表れにくい要素であることが少なくありません。",
@@ -48,6 +56,9 @@ export const journalPosts: JournalPost[] = [
       "平屋は憧れだけで選ぶと後悔しやすい間取りです。向き不向きを、暮らし方の観点から整理しました。",
     category: "間取り",
     date: "2026-05-19",
+    image: "houseCLiving",
+    imageAlt: "木の天井と大きな窓を持つ、緑に面したリビング",
+    pullQuote: "大切なのは「平屋だから良い」ではなく、暮らし方に合っているかどうかです。",
     body: [
       {
         text: "平屋には、家族の気配が伝わりやすい、階段の上り下りがない、といった大きな魅力があります。一方で、同じ理由が「向いていない」要素になる家族もいます。",
@@ -72,6 +83,9 @@ export const journalPosts: JournalPost[] = [
       "UA値や断熱等級は大切な指標です。ですが数字だけでは説明できない「暖かさの体感」があります。",
     category: "性能",
     date: "2026-06-02",
+    image: "houseAEntrance",
+    imageAlt: "木格子のスクリーンごしに灯りがともる、夜の玄関まわり",
+    pullQuote: "同じ室温でも、壁や床の表面温度が低いと体感的には寒く感じます。",
     body: [
       {
         text: "断熱等級や気密性能(C値)は、家の性能を比較するうえで欠かせない指標です。ただし、数字が良ければ必ず暖かく感じるかというと、そうとは限りません。",
@@ -100,6 +114,9 @@ export const journalPosts: JournalPost[] = [
       "「家事が楽になる間取り」を語る前に、まず聞くべきことがあります。それは家事の分担そのものです。",
     category: "暮らし",
     date: "2026-07-14",
+    image: "houseBKitchen",
+    imageAlt: "木と白を基調にした、リビングを見渡せるキッチン",
+    pullQuote: "「今の家事、どう分担していますか」。その会話が、家づくりの一番良いスタート地点になります。",
     body: [
       {
         text: "「家事動線を短くしたい」というご要望は、家づくりの相談で最も多いものの一つです。ですが動線の話をする前に、実はもっと大切な質問があります。",

@@ -63,7 +63,7 @@ export function ThreePromises() {
                 </div>
               </div>
             </ImageReveal>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.1} y={6}>
               <p className="mt-6 max-w-md text-[14px] leading-loose text-secondary md:text-[15px]">
                 耐震・断熱・気密。感覚ではなく数値で確認できる性能を、暮らしの言葉に翻訳してお伝えします。
               </p>

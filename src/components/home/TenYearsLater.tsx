@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Reveal } from "@/components/Reveal";
+import { FadeText } from "@/components/Reveal";
 import { image } from "@/lib/images";
 
 export function TenYearsLater() {
@@ -15,20 +15,21 @@ export function TenYearsLater() {
       <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/55 to-ink/30" />
 
       <div className="wide relative z-10 w-full pb-16 pt-32 md:pb-24">
-        <Reveal>
+        <FadeText>
           <div className="font-en-display italic leading-[0.85] tracking-tight text-base">
             <p className="text-[76px] md:text-[140px] lg:text-[176px]">10</p>
             <p className="-mt-2 text-[76px] md:text-[140px] lg:text-[176px]">Years</p>
             <p className="-mt-2 text-[76px] md:text-[140px] lg:text-[176px]">Later</p>
           </div>
-        </Reveal>
+        </FadeText>
 
-        <Reveal delay={0.15} className="mt-10 max-w-md md:mt-14">
-          <p className="text-[15px] leading-loose text-base/85 md:text-[16px]">
-            無垢の床は10年をかけて色を深め、子どもが柱につけた傷はいつか記録になる。
-            完成は、ゴールではなくスタートラインです。
-          </p>
-        </Reveal>
+        {/* Deliberately static — no reveal animation. The image and giant
+            type already carry the moment; the supporting line just sits
+            there, quietly, once the section is on screen. */}
+        <p className="mt-10 max-w-md text-[15px] leading-loose text-base/85 md:mt-14 md:text-[16px]">
+          無垢の床は10年をかけて色を深め、子どもが柱につけた傷はいつか記録になる。
+          完成は、ゴールではなくスタートラインです。
+        </p>
       </div>
     </section>
   );

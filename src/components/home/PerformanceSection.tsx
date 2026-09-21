@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
 
-const specs = [
+const rows = [
   {
     en: "Earthquake Resistance",
     spec: "耐震等級3",
@@ -13,15 +13,18 @@ const specs = [
     spec: "断熱等性能等級6",
     benefit: "冬の朝、布団から出るのがつらくない暖かさ。",
   },
+];
+
+const pullouts = [
   {
     en: "Airtightness",
     spec: "C値 0.5以下",
-    benefit: "隙間風にごまかされない、静かで均一な室温。",
+    benefit: "隙間風にごまかされない、\n静かで均一な室温。",
   },
   {
     en: "Longevity",
     spec: "長期優良住宅 対応",
-    benefit: "10年後も、資産として安心して住み継げる基準。",
+    benefit: "10年後も、資産として\n安心して住み継げる基準。",
   },
 ];
 
@@ -42,7 +45,7 @@ export function PerformanceSection() {
         </Reveal>
 
         <div className="mt-16 border-t hairline md:mt-20">
-          {specs.map((s, i) => (
+          {rows.map((s, i) => (
             <Reveal key={s.spec} delay={i * 0.05}>
               <div className="grid grid-cols-1 gap-2 border-b hairline py-8 md:grid-cols-12 md:items-center md:gap-8 md:py-9">
                 <p className="font-en-serif text-[13px] italic tracking-[0.12em] text-wood md:col-span-3">
@@ -55,6 +58,20 @@ export function PerformanceSection() {
                   {s.benefit}
                 </p>
               </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
+          {pullouts.map((s, i) => (
+            <Reveal key={s.spec} delay={i * 0.06}>
+              <p className="font-en-serif text-[12px] italic tracking-[0.12em] text-wood">
+                {String(i + 3).padStart(2, "0")} — {s.en}
+              </p>
+              <p className="font-serif-jp mt-3 whitespace-pre-line text-[20px] leading-[1.6] text-ink md:text-[22px]">
+                {s.benefit}
+              </p>
+              <p className="mt-3 text-[12px] tracking-wide text-secondary">{s.spec}</p>
             </Reveal>
           ))}
         </div>

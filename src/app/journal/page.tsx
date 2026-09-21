@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal } from "@/components/Reveal";
+import { image } from "@/lib/images";
 import { journalPosts } from "@/data/journal";
 
 export const metadata: Metadata = {
@@ -29,12 +31,21 @@ export default function JournalPage() {
             <Reveal key={post.slug} delay={i * 0.05}>
               <Link
                 href={`/journal/${post.slug}`}
-                className="group grid grid-cols-1 gap-3 border-b hairline py-9 md:grid-cols-12 md:items-center md:gap-8"
+                className="group grid grid-cols-1 gap-4 border-b hairline py-9 md:grid-cols-12 md:items-center md:gap-8"
               >
-                <p className="text-[12px] tracking-wide text-wood md:col-span-2">
+                <div className="relative aspect-[4/3] w-full overflow-hidden md:col-span-2">
+                  <Image
+                    src={image(post.image, 400)}
+                    alt={post.imageAlt}
+                    fill
+                    sizes="(min-width: 768px) 16vw, 100vw"
+                    className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+                <p className="text-[12px] tracking-wide text-wood md:col-span-1">
                   {post.category}
                 </p>
-                <div className="md:col-span-8">
+                <div className="md:col-span-7">
                   <p className="font-serif-jp text-[19px] leading-snug text-ink transition-colors group-hover:text-wood md:text-[21px]">
                     {post.title}
                   </p>

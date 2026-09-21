@@ -33,7 +33,7 @@ export default function ContactPage() {
           <p className="mx-auto mt-16 max-w-xl border-t hairline pt-8 text-center text-[12px] leading-relaxed text-secondary/80">
             {site.nameJa}（{site.nameEn}）
             <br />
-            {site.address}
+            {site.areaLabel}
             <br />
             {site.email}
           </p>

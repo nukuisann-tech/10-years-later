@@ -3,7 +3,7 @@ import Image from "next/image";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Reveal, ImageReveal } from "@/components/Reveal";
 import { image, type ImageKey } from "@/lib/images";
-import { PeopleSection } from "@/components/home/PeopleSection";
+import { PeopleList } from "@/components/PeopleList";
 
 export const metadata: Metadata = {
   title: "私たちについて",
@@ -90,7 +90,7 @@ export default function PhilosophyPage() {
         </div>
       </div>
 
-      <PeopleSection />
+      <PeopleList />
     </div>
   );
 }

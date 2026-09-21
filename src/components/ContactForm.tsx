@@ -24,13 +24,14 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="border-t hairline py-16 text-center">
-        <p className="font-serif-jp text-[22px] text-ink md:text-[24px]">
+        <p className="font-en-serif text-[11px] italic tracking-[0.14em] text-wood">
+          DEMO COMPLETE
+        </p>
+        <p className="font-serif-jp mt-4 text-[22px] text-ink md:text-[24px]">
           お問い合わせ、ありがとうございます。
         </p>
         <p className="mt-5 text-[14px] leading-loose text-secondary">
-          内容を確認のうえ、2〜3営業日以内に担当者よりご連絡いたします。
-          <br />
-          ※本サイトは架空の工務店のコンセプトサイトのため、実際の送信は行われません。
+          本フォームはポートフォリオ用のデモのため、実際の送信・保存は行われません。
         </p>
       </div>
     );
@@ -83,7 +84,7 @@ export function ContactForm() {
             required
             type="text"
             name="area"
-            placeholder="例）架空県 架空市"
+            placeholder="例）〇〇県 〇〇市"
             className={fieldClass}
           />
         </label>

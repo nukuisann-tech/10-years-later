@@ -13,8 +13,7 @@ export const site = {
   description:
     "灯森工務店は、完成した瞬間ではなく、暮らした10年後の美しさを設計する工務店です。",
   email: "hello@tomori-komuten.example.com",
-  phone: "0000-00-0000",
-  address: "架空県架空市 本町1-2-3",
+  areaLabel: "Kanto Area — Concept Project",
   social: {
     instagram: "https://instagram.com/example",
   },

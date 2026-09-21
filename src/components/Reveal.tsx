@@ -29,6 +29,30 @@ export function Reveal({
   );
 }
 
+/** Pure opacity fade, no translate — for large typography where a vertical
+ * shift competes with the letterforms themselves. */
+export function FadeText({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+      transition={{ duration: 1.1, ease, delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function ImageReveal({
   children,
   delay = 0,

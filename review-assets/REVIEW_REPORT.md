@@ -1,119 +1,77 @@
-# REVIEW REPORT
+# FINAL REVIEW REPORT
 
-## 1. Project Summary
+## 1. Summary
 
-灯森工務店（TOMORI KOMUTEN）コンセプトサイトを、「良い自主制作サイト」から「30〜100万円規模の企業サイトを任せられる制作者」と判断されるポートフォリオ品質へ引き上げるブラッシュアップ（V2）。コアコンセプト「完成日ではなく、10年後を設計する。」、写真主導の設計、暖かく静かな世界観は維持したまま、①各セクションの反復パターンの解消、②編集的なレイアウトリズムの導入、③Concept Projectであることの透明性強化、を軸に修正した。
+「良いコンセプトサイト」から「30〜100万円規模の企業サイト案件を任せられる制作者」と判断される完成度への最終調整（V3）。コアコンセプト・世界観・情報設計・アニメーション方針は維持したまま、①People/Performance/Journalに残っていたテンプレート的な構造の解消、②性能コピーの表現リスクの是正、③架空情報の残存表記の削除、④モーションの単調さの解消、を中心に手を入れた。大改修はせず、既存コンポーネントへの差分編集のみで完結させている。
 
 ## 2. Changed Files
 
-- `src/components/home/Hero.tsx`
-- `src/components/home/Philosophy.tsx`
-- `src/components/home/WorksShowcase.tsx`（home）
-- `src/components/WorksGrid.tsx`（/works 一覧）
-- `src/components/home/TenYearsLater.tsx`
-- `src/components/home/ThreePromises.tsx`
-- `src/components/home/PerformanceSection.tsx`（home）
-- `src/app/performance/page.tsx`
-- `src/components/home/StorySection.tsx`
-- `src/components/home/ProcessSection.tsx`
-- `src/components/home/PeopleSection.tsx`
-- `src/components/home/JournalSection.tsx`
-- `src/components/home/CtaSection.tsx`
-- `src/components/home/Interlude.tsx`（新規）
-- `src/components/ConceptBadge.tsx`（新規）
-- `src/components/Header.tsx`
-- `src/components/ContactForm.tsx`
-- `src/app/works/[slug]/page.tsx`
-- `src/app/layout.tsx`
-- `src/app/page.tsx`
-- `src/data/works.ts`
+- `src/components/home/PeopleSection.tsx`（Home Peopleを3人別レイアウトへ再設計）
+- `src/components/PeopleList.tsx`（新規／Philosophy用の簡易People表示）
+- `src/data/people.ts`（引用文を「思想の一言」形式へ）
+- `src/app/philosophy/page.tsx`（People表示をPeopleListに差し替え）
+- `src/app/performance/page.tsx`（3グループのリズム構成＋コピー安全性の見直し）
+- `src/components/home/PerformanceSection.tsx`（Home側も2グループのリズムへ）
+- `src/data/journal.ts`（image/imageAlt/pullQuoteフィールドを追加）
+- `src/app/journal/page.tsx`（一覧にサムネイル追加）
+- `src/app/journal/[slug]/page.tsx`（パンくず・Heroイメージ・Pull Quote・関連記事・End CTA・OGP・Article構造化データを追加）
+- `src/components/ContactForm.tsx`（プレースホルダーの架空地名を修正、Demo Complete表記を追加）
+- `src/lib/site.ts`（架空住所を削除、`areaLabel`へ）
+- `src/app/contact/page.tsx`（`site.address`参照を`site.areaLabel`に更新）
+- `src/components/Reveal.tsx`（`FadeText`variantを追加）
+- `src/components/home/TenYearsLater.tsx`（巨大タイポをFadeTextへ、補足文を静止表示に）
+- `src/components/home/ThreePromises.tsx`（02の補足文をSmall Translateへ）
 
-## 3. Major Design Changes
+## 3. Design Improvements
 
-**Works一覧（/works）を均等2カラムから非対称Editorial Portfolioへ変更。**
-理由：均等グリッドはテンプレート工務店サイトの典型的な見え方になりやすい。1件目full-bleed→60/35%オフセット→50/50%という周期パターンに変え、建築雑誌のようなリズムを作った。
+**People（Home）を3人同一カードから個別レイアウトへ。**
+理由：写真・名前・肩書き・説明という並びは一般的な企業サイトのプロフィールカードに最も近く、テンプレート感の温床になりやすい。1人目＝大判ポートレート＋Pull Quote的な一言、2人目＝小さな正方形写真＋横並びテキスト、3人目＝小さな写真＋余白を大きく使った縦構成、と役割を分けた。引用文も職種説明ではなく「図面より先に、その家族の朝を想像します。」のような思想の一言に短縮。
 
-**TenYearsLaterセクションを、写真＋別カラム説明文からフルブリード写真に巨大タイポを重ねる構成へ再設計。**
-理由：ブリーフの「Heroに次ぐ象徴的セクション」「ブランドを記憶させる場所」という要求に対し、従来は情報説明寄りだった。「10 / Years / Later」を写真に直接重ねることで、一度見たら記憶に残る視覚的フックにした。文章量も3段落→1文に削減。
+**PhilosophyページのPeopleを、Homeと同じコンポーネントの使い回しから、行リスト形式の`PeopleList`へ分離。**
+理由：同じセクションが2ページで全く同じ見た目で繰り返されることのテンプレート感を解消するため。
 
-**ThreePromisesの3項目を全て同じレイアウトにせず、01=text左/image右、02=フルブリード画像＋オーバーレイラベル、03=image左/text右、と個別に変えた。**
-理由：「完全に同じレイアウトを繰り返さない」という指示への直接対応。02だけ全幅にすることで、3つの中に強弱がつき単調さを回避。
+**Performance（Home / 詳細ページ）を単一の行リストから3つのリズムへ分割。**
+理由：番号→名称→数値→説明→ベネフィットの同型構造が連続するとリストUIに見える。01-02は横長Editorial Row、03-04（UA値・C値）は巨大数値＋小さな説明、05-06（換気・長期優良住宅）は写真＋スペックのペアリング、という3パターンに分けた。
 
-**Performanceのスペック行を「01 — Earthquake Resistance / 耐震等級3 / ベネフィット文」という番号＋英語ラベル形式に統一。**
-理由：スペックの羅列に見えないようにしつつ、SPEC→HUMAN BENEFITの構造を視覚的に強調するため。ホーム側・詳細ページ側で表現を統一した。
+**Journal一覧にサムネイル画像を追加。詳細ページを大幅強化。**
+理由：単なるテキストリンクの一覧・本文だけの記事ページは、ブログテンプレートに見えやすい。一覧にはサムネイルを追加して雑誌の目次のような見せ方に、詳細ページにはパンくず・大きなHeroイメージ・Pull Quote・関連記事2本・末尾のソフトなCTAを追加し、建築雑誌のEditorial Pageに近づけた。
 
-**Family Story（Home）を長文3段落＋Pull Quoteから、Before/Design/Nowの3ビートのCase Study Previewへ圧縮し、施工事例詳細への導線を追加。**
-理由：後半まで同じトーンの説明文が続くのを避け、「詳細はWorks Detailへ送る」という役割分担を明確にした。
+## 4. UX/CRO Improvements
 
-**Processの07（その後）を、大きなEditorialセクション（巨大英字タイポ＋短い日本語見出し）に強化。01〜06はさらに簡潔な一文へ短縮。**
-理由：「建てて終わりではない」がブランド思想の証拠になる、という指示を踏まえ、07だけ視覚的な重みを持たせて「思想の回収」の役割を持たせた。
+- Journal記事末に「家づくりについて、話してみませんか。」＋Primary（家づくりの話をしてみる）／Secondary（施工事例を見る）のソフトなCTAを追加。売り込み感を出さない範囲で、Contact・Worksへの回遊を作った。
+- 関連記事を2本表示し、Journal内での回遊を促進。
+- Contact下部の会社情報から、架空の住所表記（架空県架空市 本町1-2-3）を削除し、「Kanto Area — Concept Project」という世界観を壊さない表記に変更。
+- Contactフォームの「ご検討エリア」プレースホルダーも「例）架空県 架空市」→「例）〇〇県 〇〇市」という一般的なプレースホルダー表現に修正。
+- 送信後の完了画面に「DEMO COMPLETE」ラベルを追加し、DEMO FORMの表示と対になるよう整理。
 
-**架空ロケーション表記を「架空県 緑ヶ丘」等の具体的地名から「Kanto Area」「Tohoku Area」等の編集的表記へ変更。**
-理由：透明性を保ちながらも、Portfolioとしての世界観を壊さない表現にするため。work detail・works一覧の両方で表示を統一。
+## 5. Responsive Improvements
 
-## 4. UX / CRO Changes
+- 新設したPeopleセクションの3レイアウトは、Mobileでは単純に縦積みになるよう`lg:`ブレークポイントで制御。Desktopの非対称配置をMobileで無理に再現せず、375〜430px幅で確認済み。
+- Performanceの「巨大数値」グループは、Mobileで`md:grid-cols-2`が外れ1カラム表示になり、数値の可読性を確認済み。
+- Journal詳細のパンくず・Hero画像・Pull Quote・関連記事すべて、Mobileでの折り返し・余白を確認済み。
 
-- Final CTAの導線不整合を修正：「モデルハウスを見る」（Contactへの重複リンクだった）→「施工事例を見る」（`/works`へ）に変更し、Primary/Secondaryで別の行動に誘導するよう整理。
-- Contactフォームの直上に「DEMO FORM」の明記を追加し、実データが送信されないことを事前に伝えることで、入力への心理的ハードルをさらに下げた。
-- Home Philosophyセクションを要約化し、「思想を読みたい人」を`/philosophy`へ誘導する導線を追加（Home=感情、詳細ページ=論理、という役割分担）。
-- Journal（Home）を全4記事表示から2記事＋View Allへ変更し、「更新機能があります」ではなく「厳選されたコンテンツ」に見えるよう調整。
+## 6. Accessibility
 
-## 5. Branding Changes
+- Journal詳細ページの`<nav aria-label="breadcrumb">`にパンくずを実装。
+- Article構造化データ（JSON-LD）を`journal/[slug]`ページに追加。
+- 既存のalt text（具体的な説明文）・focus state（ブラウザデフォルト維持）・見出し階層（h1は各ページ1つ）は変更なく維持。
+- People/PeopleListの画像altは人物の様子を説明する文章のまま維持。
 
-- 全ページ共通のConcept Projectバッジを追加（`ConceptBadge.tsx`）。Desktopは左下の小さな固定ラベル、Mobileはハンバーガーメニュー内のリンクとして設置。クリックすると「本サイトはWeb制作・ブランド設計のポートフォリオとして制作された架空プロジェクトです」という説明モーダルを表示。フッターの既存表記と重複しつつも、ページ内のどこからでもすぐ確認できる導線を追加した。
-- Peopleセクションに「※ CONCEPT PROJECTのため、人物・役職は架空の設定です」の一言を追加し、人物写真についても架空である旨を明示。
-- TenYearsLaterセクションを、ブランドの核である「10 Years Later」概念を視覚的に最も強く記憶させるセクションへ格上げ。
+## 7. Performance
 
-## 6. Mobile Changes
-
-- Hero・TenYearsLaterの巨大タイポは、Mobileでは単純な縮小コピーではなく、専用のフォントサイズ（`text-[76px]` 等）で個別に調整し、375〜430px幅でも改行崩れや横スクロールが発生しないことを確認。
-- ThreePromisesの02（フルブリード＋オーバーレイ）は、Mobileでは`aspect-[16/9]`を保ちながら文字サイズを縮小し、可読性を確保。
-- Concept ProjectバッジはMobileでは固定表示にせず、ハンバーガーメニュー内に格納。既存のsticky CTAバー（施工事例／相談する）と競合しないようにするため。
-- 既存のsafe-area対応・44px以上のタップ領域は変更していない（V1で対応済みのものを維持）。
-
-## 7. Performance / Accessibility
-
-- 画像は引き続きすべて`next/image`経由（`sizes`指定、Hero/Work Detailのみ`priority`）。新規追加したTenYearsLater背景画像・ThreePromises02のフルブリード画像も同様に最適化対象。
-- 新規追加のConceptBadgeモーダルは`role="dialog"` `aria-modal="true"`を付与。フォーカストラップまでは未実装（8番を参照）。
-- alt textは既存の「単なる住宅写真」ではない具体的な説明文をそのまま維持（変更なし）。
-- `prefers-reduced-motion`対応（`MotionConfig reducedMotion="user"`）は変更なし、そのまま維持。
+- 新規追加したJournal用画像・関連記事サムネイルも含め、すべて`next/image`経由（`sizes`指定）で最適化対象。
+- 新規追加コンポーネント（`PeopleList`、`FadeText`）はいずれもクライアントJSの追加バンドルを最小限に抑えている（`FadeText`はframer-motionの既存importを再利用するのみ）。
+- `next build`で全20ルートの静的生成が成功することを確認。
 
 ## 8. Remaining Concerns
 
-正直に、人間のレビューが必要だと思う点を挙げる。
+- Performanceページの「巨大数値」グループ（UA値・C値）は視覚的にはインパクトがあるが、SAMPLE SPECである旨の注記がページ冒頭にしかないため、このグループ単体を切り取って見た場合の誤解リスクはゼロではない。将来的に各数値の近くにも小さく「想定値」の注記を添えることを検討してよい。
+- Journal記事のPull Quoteは本文からの抜粋を手動で選定しており、記事本文と完全に同期する仕組み（自動抽出）にはなっていない。記事を増やす際は都度手動でPull Quoteを設定する必要がある。
+- V2レポートで指摘した「fullPageスクリーンショットでfixed要素（Concept Projectバッジ／モバイルCTAバー）が本文と重なって見える」現象は今回も同様に発生するが、実際のスクロール動作では重ならないことを確認済み（スクリーンショット取得方式特有の見え方）。
 
-1. **フルページスクリーンショットにおけるfixed要素の見え方**：`review-assets/screenshots/*-mobile-390.png`や一部のdesktop画像で、Concept ProjectバッジやモバイルのSticky CTAバーが本文テキストに重なって見える箇所がある。これはPlaywrightの`fullPage`スクリーンショットが、position:fixedの要素を「実際のビューポート基準」ではなく「合成した長いページの中の1箇所」に描画してしまうキャプチャ特有の現象であり、実際のブラウザ操作（通常スクロール）では発生しないことを個別に確認済み。ただし、実運用時に「fixedバッジがスクロール中に本文と一瞬重なる」こと自体は物理的に起こり得るため、Concept Projectバッジの背景を完全不透明にする／位置を調整する等、デザイナー判断での追加調整余地はある。
-2. **Concept Projectバッジのモーダル**：フォーカストラップ・Escキーでの閉じる操作は未実装。アクセシビリティを厳密に詰めるなら追加が必要。
-3. **Journalの記事本文**：今回はHome側の表示件数のみ調整し、記事本文自体（`/journal/[slug]`）の文章量は削減していない。SEO記事としての情報量を優先し、あえて手をつけていない。
-4. **Before/After画像**：Gitでの差分は文章（本レポート3節）で説明する形にとどめ、画像としてのBefore/After生成は行っていない（下記参照）。
+## 9. Human Review Points
 
-## 9. Test Report
-
-- `npx eslint .` → エラーなし
-- `npx tsc --noEmit` → エラーなし
-- `npx next build` → 成功（全20ルート、静的生成含め正常終了）
-- 主要route確認（ローカル本番サーバー, `next start`）：`/` `/works` `/works/garden-breakfast` `/philosophy` `/performance` `/journal` `/contact` すべて200応答、コンソールエラーなし
-- Playwrightによる実ブラウザレンダリングでのスクリーンショット取得・目視確認済み（Desktop 1440×1000 / Mobile 390×844、対象6ルート）
-
-## 10. Design Self-Critique
-
-**1. テンプレート感は残っていないか。**
-Works一覧・TenYearsLater・ThreePromisesは明確にテンプレート感を脱している。一方でPeopleセクション（3人横並び）とPerformanceの行リストは、構造としては依然「よくあるパターン」に近い。ただしPeopleは人数的に3人が自然な構成であり、Performanceは番号＋英語ラベルで差別化を図った。完全にゼロにはできていない。
-
-**2. AI生成サイト特有の症状（カード乱用・英字乱用・過剰fade・同一レイアウト反復）が残っていないか。**
-角丸カード・ドロップシャドウは引き続き不使用。英字は「10 Years Later」「Concept Area」等ブランド上意味のあるものに限定した。同一レイアウトの3回以上の反復は解消したが、Reveal/ImageRevealのfadeパターン自体は全セクション共通で使っており、モーション設計として「もう一段の変化」を作る余地はまだある（duration/easeを変える、一部セクションだけ別演出にする等）。
-
-**3. 写真が強いだけのサイトではなく、Webデザインそのものにも価値があるか。**
-TenYearsLaterのタイポグラフィ処理、Performanceの番号ラベル構造、Works一覧の非対称グリッドは「写真がなくても成立する設計判断」であり、単なる写真集ではないことを示せていると考える。
-
-**4. 工務店の発注担当者が見て「業界を理解している」と思えるか。**
-SPEC→BENEFITの翻訳構造、施工事例のCase Study的な見せ方、Process の「その後」の強調は、住宅業界特有の顧客心理（性能の分かりにくさ、引き渡し後の不安）を踏まえた設計になっている。
-
-**5. Web制作会社のディレクターが見ても「設計理由を説明できる制作者」に見えるか。**
-本レポートの「Major Design Changes」で全変更に理由を紐づけられている点は、この基準を満たすための直接的な証拠になっていると思う。
-
-**6. 30〜100万円クラスの案件へ応募するとき、このサイトを提出することがプラスに働く品質か。**
-V1と比べて明確にプラス。ただし「はい、間違いなく」と言い切るには、実際の発注者（工務店・建築系以外の業種）向けにレイアウトパターンを転用できることを示す2本目・3本目のポートフォリオが今後必要になる。
-
-**7. Mobileでも同じ評価になるか。**
-TenYearsLaterの巨大タイポ、Three Promisesのフルブリード演出はMobileでも十分機能することを確認した。ただしDesktopの「静かな余白」の効き方は、画面が小さい分どうしても弱まる。Mobileは「情報を削って読みやすくする」ことは達成できているが、Desktopほどの"間"の贅沢さは物理的に再現しきれていない。
+1. **PeopleセクションのHomeでの3レイアウト**が、実際に「人間のアートディレクターが意図的に編集した」ように見えるか、それとも単に不揃いに見えるか。
+2. **Performanceの「巨大数値」グループ**が、住宅性能サイトとして誠実な見せ方になっているか（数字を煽っていないか）。
+3. **Journal詳細ページのPull Quote抜粋**が、その記事の要点として適切な一文になっているか（5記事×1文を手動選定したため、記事によって強弱の差がある可能性）。
+4. **Contactの「Kanto Area — Concept Project」表記**が、日本語の他の表記（工務店名・タグライン）と並んだときにトーンとして浮いていないか。
